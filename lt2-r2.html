@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WEBVR - Virtual Tour Museum Musik Indonesia</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+</head>
+
+<body>
+    <!-- Scripts -->
+    <script src="Scripts/button-component.js"></script>
+
+    <a-scene>
+        <!-- Assets -->
+        <a-assets>
+            <img id="bg" src="./Images/Locations/lt2-r1.jpg">
+			<img id="arrow" src="./Images/arrow.png">
+		
+			<img id="musikmodern" src="./Images/Spesimen/MusikModern.jpg">
+			<img id="musikmodern-desc" src="./Images/Spesimen/MusikModern-desc.png">
+			<img id="iwanfals" src="./Images/Spesimen/IwanFals.jpg">
+			<img id="iwanfals-desc" src="./Images/Spesimen/IwanFals-desc.png">
+        </a-assets>
+
+        <!-- Camera Object -->
+        <a-entity position="0 0 0" rotation="0 90 0">
+            <a-camera id="camera" look-controls="" wasd-controls-enabled="false" camera="active:true" 
+            scale="" visible="">
+
+            <!-- Cursor -->
+            <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1500" position="0 0 -1" 
+                geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
+                material="color: white; shader: flat"
+
+                animation__fusing="property: geometry.radiusOuter; from: 0.050; to: 0.010; startEvents: fusing; easing: easeInQuad; dur: 1000"
+                animation__fusing2="property: geometry.radiusInner; from: 0.050; to: 0.005; startEvents: fusing; easing: easeInQuad; dur: 1000">
+            </a-entity>
+			
+            <!-- Info Objects -->
+			
+			<a-entity id="MusikModern" position="0 0 -1" rotation="0 0 0" visible="false">
+				<a-plane height="1.33" width="1" position="-0.95 0 0" opacity="0">
+					<a-image src="#musikmodern" height="1.33" width="1"/>
+				</a-plane>
+                <a-plane height="1.33" width="1" position="0.95 0 0" opacity="0">
+					<a-image src="#musikmodern-desc" height="1.33" width="1"/>
+				</a-plane>
+            </a-entity>
+			
+			<a-entity id="IwanFals" position="0 0 -1" rotation="0 0 0" visible="false">
+				<a-plane height="1.33" width="1" position="-0.95 0 0" opacity="0">
+					<a-image src="#iwanfals" height="1.33" width="1"/>
+				</a-plane>
+                <a-plane height="1.33" width="1" position="0.95 0 0" opacity="0">
+					<a-image src="#iwanfals-desc" height="1.33" width="1"/>
+				</a-plane>
+            </a-entity>
+			
+			
+            </a-camera>
+        </a-entity>
+
+        <!-- Background -->
+        <a-sky src="#bg"></a-sky>
+
+        <!-- Navigasi -->
+        <!-- Ke Lantai 2 Kanan A -->
+		<a-entity id="item001" position="-1 0 -0.5" rotation="-90 180 180"> 
+            
+            <a-image class="itemButton" src="#arrow" transparent="true"
+                position="1.5 1.5 0" rotation="0 0 0" 
+                hoverable="color:#db4035"
+                clickable="name:Lantai 2 Kanan A; target_url:lt2-r1.html">
+            </a-image>
+			
+			<a-text font="kelsonsans" width="6" align="center" 
+                value="Lantai 2\nKanan A" color="white"
+                position="1.5 2.5 0" rotation="0 0 0">
+            </a-text>
+
+            <!-- Reference Block, Comment when unused -->
+            <!-- <a-plane color="#FFF" position="0 0 0.01" rotation="0 0 0" width="0.2"></a-plane> -->
+        </a-entity>
+        
+        <!-- Ke Lantai 2 Kanan C -->
+        <a-entity id="item002" position="0 0 0" rotation="-90 -17 180"> 
+            
+            <a-image class="itemButton" src="#arrow" transparent="true"
+            position="-0 2.9 0" rotation="0 0 20" 
+            hoverable="color:#db4035"
+            clickable="name:Lantai 2 Kanan C; target_url:lt2-r3.html">
+            </a-image>
+			
+			<a-text font="kelsonsans" width="6" align="center" 
+                value="Lantai 2 \n Kanan C" color="white"
+                position="0.2 2 0" rotation="0 0 20">
+            </a-text>
+
+            <!-- Reference Block, Comment when unused -->
+            <!-- <a-plane color="#FFF" position="0 0 0.01" rotation="0 0 0" width="0.2"></a-plane> -->
+        </a-entity>
+
+		<!-- Info koleksi -->
+		<a-entity id="spesimen002" position="-4 1.5 0.5" rotation="45 -90 0"> 
+            <a-entity class="itemButton"
+            geometry="primitive: plane; height: 0.6; width: 1" material="color:#ffffff; side: double; opacity:0;" 
+            hoverable="color:#ff6459"
+            info-block="name:TestInfo; target_id:MusikModern"
+            scale="" visible="">
+            </a-entity>
+
+            <a-text value="Alat Musik Modern" color="white" align="center" width="6" position="0 1.8 1" rotation="45 180 0"></a-text>
+        </a-entity>
+		
+		<a-entity id="spesimen003" position="3 0.9 1.25" rotation="0 75 0"> 
+            <a-entity class="itemButton"
+            geometry="primitive: plane; height: 1.9; width: 0.8" material="color:#ffffff; side: double; opacity:0;" 
+            hoverable="color:#ff6459"
+            info-block="name:TestInfo; target_id:IwanFals"
+            scale="" visible="">
+            </a-entity>
+
+            <a-text value="Iwan Fals" color="white" align="center" width="6" position="0 1.1 0" rotation="0 180 0"></a-text>
+        </a-entity>
+		
+
+    </a-scene>
+
+</body>
+
+</html>

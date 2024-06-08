@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WEBVR - Virtual Tour Museum Musik Indonesia</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+</head>
+
+<body>
+    <!-- Scripts -->
+    <script src="Scripts/button-component.js"></script>
+
+    <a-scene>
+        <!-- Assets -->
+        <a-assets>
+            <img id="bg" src="./Images/Locations/lt2-l1.jpg">
+			<img id="arrow" src="./Images/arrow.png">
+            
+            <img id="angklung" src="./Images/Spesimen/Angklung.jpg">
+            <img id="angklung-desc" src="./Images/Spesimen/Angklung-desc.png">
+
+            <img id="beduk" src="./Images/Spesimen/Beduk.jpg">
+            <img id="beduk-desc" src="./Images/Spesimen/Beduk-desc.png">
+
+            <img id="dogdog" src="./Images/Spesimen/DogDog.jpg">
+            <img id="dogdog-desc" src="./Images/Spesimen/Dogdog-desc.png">
+
+            <img id="gambus" src="./Images/Spesimen/Gambus.jpg">
+            <img id="gambus-desc" src="./Images/Spesimen/Gambus-desc.png">
+
+            <img id="gamelan" src="./Images/Spesimen/Gamelan.jpg">
+            <img id="gamelan-desc" src="./Images/Spesimen/Gamelan-desc.png">
+
+            <img id="gamelanBali" src="./Images/Spesimen/GamelanBali.jpg">
+            <img id="gamelanBali-desc" src="./Images/Spesimen/GamelanBali-desc.png">
+
+            <img id="gong" src="./Images/Spesimen/Gong.jpg">
+            <img id="gong-desc" src="./Images/Spesimen/Gong-desc.png">
+
+            <img id="kendang" src="./Images/Spesimen/Kendang.jpg">
+            <img id="kendang-desc" src="./Images/Spesimen/Kendang-desc.png">
+
+            <img id="rebana" src="./Images/Spesimen/Rebana.jpg">
+            <img id="rebana-desc" src="./Images/Spesimen/Rebana-desc.png">
+
+            <img id="sape" src="./Images/Spesimen/Sape.jpg">
+            <img id="sape-desc" src="./Images/Spesimen/Sape-desc.png">
+
+            <img id="sasando" src="./Images/Spesimen/Sasando.jpg">
+            <img id="sasando-desc" src="./Images/Spesimen/Sasando-desc.png">
+            
+            <img id="tifa" src="./Images/Spesimen/Tifa.jpg">
+            <img id="tifa-desc" src="./Images/Spesimen/Tifa-desc.png">
+            
+        </a-assets>
+
+        <!-- Camera Object -->
+        <a-entity position="0 0 0" rotation="0 140 0">
+            <a-camera id="camera" look-controls="" wasd-controls-enabled="false" camera="active:true" 
+            scale="" visible="">
+
+            <!-- Cursor -->
+            <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1500" position="0 0 -1" 
+                geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
+                material="color: white; shader: flat"
+
+                    animation__fusing="property: geometry.radiusOuter; from: 0.050; to: 0.010; startEvents: fusing; easing: easeInQuad; dur: 1000"
+                    animation__fusing2="property: geometry.radiusInner; from: 0.050; to: 0.005; startEvents: fusing; easing: easeInQuad; dur: 1000">
+
+                </a-entity>
+
+            <!-- Info Objects -->
+            <a-entity id="Angklung" position="0 0 -1" rotation="0 0 0" visible="false">
+				<a-plane height="1.33" width="1" position="-0.95 0 0" opacity="0">
+				    <a-image src="#angklung" height="1.33" width="1"/>
+				</a-plane>
+                <a-plane height="1.33" width="1" position="0.95 0 0" opacity="0">
+					<a-image src="#angklung-desc" height="1.33" width="1"/>
+				</a-plane>
+            </a-entity>
+
+            <a-entity id="Beduk" position="0 0 -1" rotation="0 0 0" visible="false">
+				<a-plane height="1.33" width="1" position="-0.95 0 0" opacity="0">
+				    <a-image src="#beduk" height="1.33" width="1"/>
+				</a-plane>
+                <a-plane height="1.33" width="1" position="0.95 0 0" opacity="0">
+					<a-image src="#beduk-desc" height="1.33" width="1"/>
+				</a-plane>
+            </a-entity>
+
+            <a-entity id="Dogdog" position="0 0 -1" rotation="0 0 0" visible="false">
+				<a-plane height="1.33" width="1" position="-0.95 0 0" opacity="0">
+				    <a-image src="#dogdog" height="1.33" width="1"/>
+				</a-plane>
+                <a-plane height="1.33" width="1" position="0.95 0 0" opacity="0">
+					<a-image src="#dogdog-desc" height="1.33" width="1"/>
+				</a-plane>
+            </a-entity>
+
+            <a-entity id="Gambus" position="0 0 -1" rotation="0 0 0" visible="false">
+				<a-plane height="1.33" width="1" position="-0.95 0 0" opacity="0">
+				    <a-image src="#gambus" height="1.33" width="1"/>
+				</a-plane>
+                <a-plane height="1.33" width="1" position="0.95 0 0" opacity="0">
+					<a-image src="#gambus-desc" height="1.33" width="1"/>
+				</a-plane>
+            </a-entity>
+
+            <a-entity id="Gamelan" position="0 0 -1" rotation="0 0 0" visible="false">
+				<a-plane height="1.33" width="1" position="-0.95 0 0" opacity="0">
+				    <a-image src="#gamelan" height="1.33" width="1"/>
+				</a-plane>
+                <a-plane height="1.33" width="1" position="0.95 0 0" opacity="0">
+					<a-image src="#gamelan-desc" height="1.33" width="1"/>
+				</a-plane>
+            </a-entity>
+
+            <a-entity id="GamelanBali" position="0 0 -1" rotation="0 0 0" visible="false">
+				<a-plane height="1.33" width="1" position="-0.95 0 0" opacity="0">
+				    <a-image src="#gamelanBali" height="1.33" width="1"/>
+				</a-plane>
+                <a-plane height="1.33" width="1" position="0.95 0 0" opacity="0">
+					<a-image src="#gamelanBali-desc" height="1.33" width="1"/>
+				</a-plane>
+            </a-entity>
+
+
+            <a-entity id="Gong" position="0 0 -1" rotation="0 0 0" visible="false">
+				<a-plane height="1.33" width="1" position="-0.95 0 0" opacity="0">
+				    <a-image src="#gong" height="1.33" width="1"/>
+				</a-plane>
+                <a-plane height="1.33" width="1" position="0.95 0 0" opacity="0">
+					<a-image src="#gong-desc" height="1.33" width="1"/>
+				</a-plane>
+            </a-entity>
+
+            <a-entity id="Kendang" position="0 0 -1" rotation="0 0 0" visible="false">
+				<a-plane height="1.33" width="1" position="-0.95 0 0" opacity="0">
+				    <a-image src="#kendang" height="1.33" width="1"/>
+				</a-plane>
+                <a-plane height="1.33" width="1" position="0.95 0 0" opacity="0">
+					<a-image src="#kendang-desc" height="1.33" width="1"/>
+				</a-plane>
+            </a-entity>
+
+            <a-entity id="Rebana" position="0 0 -1" rotation="0 0 0" visible="false">
+				<a-plane height="1.33" width="1" position="-0.95 0 0" opacity="0">
+				    <a-image src="#rebana" height="1.33" width="1"/>
+				</a-plane>
+                <a-plane height="1.33" width="1" position="0.95 0 0" opacity="0">
+					<a-image src="#rebana-desc" height="1.33" width="1"/>
+				</a-plane>
+            </a-entity>
+
+            <a-entity id="Sape" position="0 0 -1" rotation="0 0 0" visible="false">
+				<a-plane height="1.33" width="1" position="-0.95 0 0" opacity="0">
+				    <a-image src="#sape" height="1.33" width="1"/>
+				</a-plane>
+                <a-plane height="1.33" width="1" position="0.95 0 0" opacity="0">
+					<a-image src="#sape-desc" height="1.33" width="1"/>
+				</a-plane>
+            </a-entity>
+
+            <a-entity id="Sasando" position="0 0 -1" rotation="0 0 0" visible="false">
+				<a-plane height="1.33" width="1" position="-0.95 0 0" opacity="0">
+				    <a-image src="#sasando" height="1.33" width="1"/>
+				</a-plane>
+                <a-plane height="1.33" width="1" position="0.95 0 0" opacity="0">
+					<a-image src="#sasando-desc" height="1.33" width="1"/>
+				</a-plane>
+            </a-entity>
+
+
+            <a-entity id="Tifa" position="0 0 -1" rotation="0 0 0" visible="false">
+				<a-plane height="1.33" width="1" position="-0.95 0 0" opacity="0">
+				    <a-image src="#tifa" height="1.33" width="1"/>
+				</a-plane>
+                <a-plane height="1.33" width="1" position="0.95 0 0" opacity="0">
+					<a-image src="#tifa-desc" height="1.33" width="1"/>
+				</a-plane>
+            </a-entity>
+
+            </a-camera>
+        </a-entity>
+
+        <!-- Background -->
+        <a-sky src="#bg"></a-sky>
+
+        <!-- Navigasi -->
+        <!-- Ke Lantai 2 Kiri B -->
+		<a-entity id="item001" position="0 0 0" rotation="-90 150 180"> 
+            
+            <a-image class="itemButton" src="#arrow" transparent="true"
+                position="0 4.5 0" rotation="0 0 0" 
+                hoverable="color:#db4035"
+                clickable="name:Lantai 2; target_url:lt2.html">
+            </a-image>
+			
+			<a-text font="kelsonsans" width="8" align="center" 
+                value="Tangga" color="white"
+                position="0 3 0" rotation="0 0 0">
+            </a-text>
+
+            <!-- Reference Block, Comment when unused -->
+            <!-- <a-plane color="#FFF" position="0 0 0.01" rotation="0 0 0" width="0.2"></a-plane> -->
+        </a-entity>
+		
+            <!-- Reference Block, Comment when unused -->
+            <!-- <a-plane color="#FFF" position="0 0 0.01" rotation="0 0 0" width="0.2"></a-plane> -->
+        </a-entity>
+
+        <!-- Info koleksi -->
+		<a-entity id="spesimen001" position="-2.8 1.4 3" rotation="45 -30 40"> 
+            <a-entity class="itemButton"
+            geometry="primitive: plane; height: 0.6; width: 1" material="color:#ffffff; side: double; opacity:0;" 
+            hoverable="color:#ff6459"
+            info-block="name:TestInfo; target_id:Angklung"
+            scale="" visible="">
+            </a-entity>
+
+            <a-text value="Angklung" color="white" align="center" width="6" position="0.5 1.8 1" rotation="45 180 0"></a-text>
+        </a-entity>    
+
+        <a-entity id="spesimen002" position="1.5 0.1 -0.8" rotation="0 90 0"> 
+            <a-entity class="itemButton"
+            geometry="primitive: plane; height: 0.6; width: 1" material="color:#ffffff; side: double; opacity:0;" 
+            hoverable="color:#ff6459"
+            info-block="name:TestInfo; target_id:Beduk"
+            scale="" visible="">
+            </a-entity>
+
+            <a-text value="Beduk" color="white" align="center" width="6" position="-0.1 0.5 -0" rotation="0 180 0"></a-text>
+        </a-entity>
+
+        <a-entity id="spesimen003" position="0.5 1.8 2" rotation="0 0 -5"> 
+            <a-entity class="itemButton"
+            geometry="primitive: plane; height: 0.6; width: 1" material="color:#ffffff; side: double; opacity:0;" 
+            hoverable="color:#ff6459"
+            info-block="name:TestInfo; target_id:Dogdog"
+            scale="" visible="">
+            </a-entity>
+
+            <a-text value="Dogdog" color="white" align="center" width="6" position="0.2 0.8 1" rotation="0 180 0"></a-text>
+        </a-entity>
+
+        <a-entity id="spesimen004" position="-2.2 0 -6" rotation="0 0 0"> 
+            <a-entity class="itemButton"
+            geometry="primitive: plane; height: 0.6; width: 1" material="color:#ffffff; side: double; opacity:0;" 
+            hoverable="color:#ff6459"
+            info-block="name:TestInfo; target_id:Gambus"
+            scale="" visible="">
+            </a-entity>
+
+            <a-text value="Gambus" color="white" align="center" width="6" position="0 0.5 0" rotation="0 0 0"></a-text>
+        </a-entity>
+
+        <a-entity id="spesimen005" position="-2.5 -0.5 0.3" rotation="80 -40 40"> 
+            <a-entity class="itemButton"
+            geometry="primitive: plane; height: 0.6; width: 1" material="color:#ffffff; side: double; opacity:0;" 
+            hoverable="color:#ff6459"
+            info-block="name:TestInfo; target_id:Gamelan"
+            scale="" visible="">
+            </a-entity>
+
+            <a-text value="Gamelan" color="white" align="center" width="6" position="0 0.6 0" rotation="45 180 0"></a-text>
+        </a-entity>
+
+        <a-entity id="spesimen006" position="-4.5 1 -2.5" rotation="0 45 0"> 
+            <a-entity class="itemButton"
+            geometry="primitive: plane; height: 0.6; width: 1" material="color:#ffffff; side: double; opacity:0;" 
+            hoverable="color:#ff6459"
+            info-block="name:TestInfo; target_id:GamelanBali"
+            scale="" visible="">
+            </a-entity>
+
+            <a-text value="Gamelan Bali" color="white" align="center" width="6" position="0 0.5 0" rotation="180 150 180"></a-text>
+        </a-entity>
+
+
+        <a-entity id="spesimen008" position="0.2 -0.6 -5" rotation="0 0 0"> 
+            <a-entity class="itemButton"
+            geometry="primitive: plane; height: 0.6; width: 1" material="color:#ffffff; side: double; opacity:0;" 
+            hoverable="color:#ff6459"
+            info-block="name:TestInfo; target_id:Gong"
+            scale="" visible="">
+            </a-entity>
+
+            <a-text value="Gong" color="white" align="center" width="6" position="0 0.5 0" rotation="0 0 0"></a-text>
+        </a-entity>
+        
+        <a-entity id="spesimen009" position="1 0 1" rotation="30 80 0"> 
+            <a-entity class="itemButton"
+            geometry="primitive: plane; height: 0.6; width: 1" material="color:#ffffff; side: double; opacity:0;" 
+            hoverable="color:#ff6459"
+            info-block="name:TestInfo; target_id:Kendang"
+            scale="" visible="">
+            </a-entity>
+
+            <a-text value="Kendang" color="white" align="center" width="6" position="0 0.5 0" rotation="0 180 0"></a-text>
+        </a-entity>
+
+        <a-entity id="spesimen010" position="-4 1.8 -0.8" rotation="0 90 0"> 
+            <a-entity class="itemButton"
+            geometry="primitive: plane; height: 0.6; width: 1" material="color:#ffffff; side: double; opacity:0;" 
+            hoverable="color:#ff6459"
+            info-block="name:TestInfo; target_id:Rebana"
+            scale="" visible="">
+            </a-entity>
+
+            <a-text value="Rebana" color="black" align="center" width="6" position="-0.3 0.3 1" rotation="180 180 180"></a-text>
+        </a-entity>
+
+        <a-entity id="spesimen011" position="-4.7 0.3 -7" rotation="0 45 0"> 
+            <a-entity class="itemButton"
+            geometry="primitive: plane; height: 0.6; width: 1" material="color:#ffffff; side: double; opacity:0;" 
+            hoverable="color:#ff6459"
+            info-block="name:TestInfo; target_id:Sape"
+            scale="" visible="">
+            </a-entity>
+
+            <a-text value="Sape" color="white" align="center" width="6" position="0 0.5 0" rotation="0 0 0"></a-text>
+        </a-entity>
+
+        <a-entity id="spesimen012" position="-1.2 1.8 3" rotation="20 -10 0"> 
+            <a-entity class="itemButton"
+            geometry="primitive: plane; height: 0.6; width: 1" material="color:#ffffff; side: double; opacity:0;" 
+            hoverable="color:#ff6459"
+            info-block="name:TestInfo; target_id:Sasando"
+            scale="" visible="">
+            </a-entity>
+
+            <a-text value="Sasando" color="white" align="center" width="6" position="-0.3 1.2 1" rotation="10 180 0"></a-text>
+        </a-entity>
+
+        <a-entity id="spesimen014" position="0.2 0.1 5.5" rotation="0 0 -5"> 
+            <a-entity class="itemButton"
+            geometry="primitive: plane; height: 0.6; width: 1" material="color:#ffffff; side: double; opacity:0;" 
+            hoverable="color:#ff6459"
+            info-block="name:TestInfo; target_id:Tifa"
+            scale="" visible="">
+            </a-entity>
+
+            <a-text value="Tifa" color="white" align="center" width="6" position="0.2 0.3 1" rotation="0 180 0"></a-text>
+        </a-entity>
+        
+
+    </a-scene>
+
+</body>
+
+</html>

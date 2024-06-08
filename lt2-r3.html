@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WEBVR - Virtual Tour Museum Musik Indonesia</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+</head>
+
+<body>
+    <!-- Scripts -->
+    <script src="Scripts/button-component.js"></script>
+
+    <a-scene>
+        <!-- Assets -->
+        <a-assets>
+            <img id="bg" src="./Images/Locations/lt2-r2.jpg">
+			<img id="arrow" src="./Images/arrow.png">
+
+            <img id="darapuspita" src="./Images/Spesimen/DaraPuspita.jpg">
+            <img id="darapuspita-desc" src="./Images/Spesimen/DaraPuspita-desc.png">
+            <video id="vinyl-vid" src="./Images/Spesimen/vinyl.mp4" autoplay loop="true" webkit-playsinline></video>
+            <img id ="vinyl" src="./Images/Spesimen/PemutarVinyl.jpg">
+            <img id="vinyl-desc" src="./Images/Spesimen/Vinyl-desc.png">
+            
+            
+        </a-assets>
+
+        <!-- Camera Object -->
+        <a-entity position="0 0 0" rotation="0 45 0">
+            <a-camera id="camera" look-controls="" wasd-controls-enabled="false" camera="active:true" 
+            scale="" visible="">
+
+            <!-- Cursor -->
+                <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1500" position="0 0 -1" 
+                    geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
+                    material="color: white; shader: flat"
+
+                        animation__fusing="property: geometry.radiusOuter; from: 0.050; to: 0.010; startEvents: fusing; easing: easeInQuad; dur: 1000"
+                        animation__fusing2="property: geometry.radiusInner; from: 0.050; to: 0.005; startEvents: fusing; easing: easeInQuad; dur: 1000">
+
+                </a-entity>
+
+            <!-- HUD -->
+            <a-entity id="test-hud" position="0 0 -1" rotation="0 0 0" visible="false">
+                <a-plane height="1.33" width="1" position="0.95 0 0" color="red"></a-plane>
+                <a-plane height="1.33" width="1" position="-0.95 0 0" color="blue"></a-plane>
+            </a-entity>
+
+            <a-entity id="darapuspita-hud" position="0 0 -1" rotation="0 0 0" visible="false">
+                <a-plane height="1.33" width="1" position="0.95 0 0" color="red">
+                    <a-image src="#darapuspita-desc" height="1.33" width="1"></a-image>
+                </a-plane>
+                <a-plane height="1.33" width="1" position="-0.95 0 0" color="blue">
+                    <a-image src="#darapuspita" height="1.33" width="1"></a-image>
+                </a-plane>
+            </a-entity>
+
+            <a-entity id="Vinyl" position="0 0 -1" rotation="0 0 0" visible="false">
+                <a-plane height="1.33" width="1" position="0.95 0 0" color="red">
+                    <a-image src="#vinyl-desc" height="1.33" width="1"></a-image>
+                </a-plane>
+                <a-plane height="1.33" width="1" position="-0.95 0 0" color="blue">
+                    <a-image src="#vinyl" height="1.33" width="1"></a-image>
+                </a-plane>
+            </a-entity>
+
+            </a-camera>
+
+            
+        </a-entity>
+
+        <!-- Background -->
+        <a-sky src="#bg"></a-sky>
+
+        <!-- Navigasi -->
+        <!-- Ke Lantai 2 Kanan B -->
+        <a-entity id="item001" position="0 0 0" rotation="-90 90 100"> 
+            
+            <a-image class="itemButton" src="#arrow" transparent="true"
+                position="2 1 0" rotation="0 0 0" 
+                hoverable="color:#db4035"
+                clickable="name:Lantai 2 Kanan B; target_url:lt2-r2.html">
+            </a-image>
+			
+            <a-text font="kelsonsans" width="6" align="center" 
+                value="Lantai 2\nKanan B" color="white"
+                position="2 2 0" rotation="0 0 0">
+            </a-text>
+
+            <!-- Reference Block, Comment when unused -->
+            <a-plane color="#FFF" position="0 0 0.01" rotation="0 0 0" width="0.2"></a-plane>
+        </a-entity>
+
+        <!-- Spesimen -->
+        <!-- Spesimen Dara Puspita -->
+        <a-entity id="spesimen001" position="-2 1.3 0.15" rotation="0 -90 0"> 
+            
+			<a-plane opacity="0" color="#ffffff" position="-1.2 0.4 1" rotation="0 185 0" width="0.5" height="0.62"
+                info-block="name:Dara Puspita; target_id:darapuspita-hud">
+                <a-text value="Dara Puspita" color="white" align="center" width="2.2" position="0 0.3 0"></a-text>
+            </a-plane>
+
+            <!-- Reference Block, Comment when unused -->
+            <!-- <a-plane color="#FFF" position="0 0 0.01" rotation="0 180 0" width="0.4"></a-plane> -->
+            <!-- <a-box></a-box> -->
+        </a-entity>
+
+        <!-- Spesimen Vinyl Video -->
+        <a-entity id="spesimen002" position="-1 1.3 0.15" rotation="0 -90 0"> 
+            
+			<a-plane opacity="0" color="#ffffff" position="-0.3 -0.4 1.5" rotation="0 180 0" width="0.5" height="0.62"
+                info-block="name:Vinyl; target_id:Vinyl">
+                <a-text value="Vinyl" color="white" align="center" width="2.2" position="0 0.4 0"></a-text>
+            </a-plane>
+
+            <!-- Reference Block, Comment when unused -->
+            <!-- <a-plane color="#FFF" position="0 0 0.01" rotation="0 180 0" width="0.4"></a-plane> -->
+            <!-- <a-box></a-box> -->
+        </a-entity>
+        
+    </a-scene>
+
+</body>
+
+</html>
